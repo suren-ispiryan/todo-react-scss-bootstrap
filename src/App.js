@@ -42,7 +42,12 @@ function App() {
   }
 
   const restore = () => {
-    setItems(initialState)
+    const initialStateCopy = [...initialState]
+    const newInitial = initialStateCopy.map(i => {
+      i.count = 0
+      return i
+    })
+    setItems(newInitial);
   }
 
   const increaseItem = (id) => {
